@@ -7,9 +7,8 @@
 	git clone https://github.com/rsta2/circle
 	git clone https://github.com/kings-way/cylon-6 circle/sample/cylon-6
 	
-	cd circle
-
 	# patch the code
+	cd circle
 	patch -p1 < sample/cylon-6/i2cslave.patch
 
 	# Set RPi version in Rules.mk (RASPPI ?= 3 here)
