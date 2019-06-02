@@ -1,0 +1,10 @@
+--- circle_old/lib/i2cslave.cpp	2019-06-03 00:59:33.367750580 +0800
++++ circle_new/lib/i2cslave.cpp	2019-06-03 01:03:28.823743709 +0800
+@@ -199,6 +199,7 @@
+ 			while (!(read32 (ARM_BSC_SPI_SLAVE_FR) & FR_TXBUSY))
+ 			{
+ 				// do nothing
++				break;
+ 			}
+ 		}
+ 
