@@ -1,22 +1,27 @@
 #ifndef _cylon_6_h
 #define _cylon_6_h
 #include <circle/types.h>
-#include <circle/i2cslave.h>
+#include <circle/gpiopin.h>
+#include <circle/pwmoutput.h>
+#include "i2cslave.h"
 
-#define I2C_SLAVE_ADDRESS	20		// 7 bit slave address
+#define I2C_SLAVE_ADDRESS	0x50 	// 7 bit slave address
 
-class CI2CEchoServer : public CI2CSlave
+class Cylon6 : public CI2CSlave
 {
 public:
-	CI2CEchoServer (u8 ucSlaveAddress);
-	~CI2CEchoServer (void);
+	Cylon6 (CActLED *_m_ActLED, CTimer *_m_Timer);
+	~Cylon6 (void);
 
 	void Run (void);
+	int send_edid(const u8 edid[]);
+	void change_name_sn(u8 edid[], char *name, int count);
 
 private:
-	boolean ReceiveRequest (void);
-	boolean SendResponse (void);
-
+//	CInterruptSystem	m_Interrupt;
+	CGPIOPin		GPIOPin;
+	CActLED         *m_ActLED;
+	CTimer 			*m_Timer;
 };
 
 #endif

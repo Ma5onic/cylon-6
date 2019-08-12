@@ -2,27 +2,30 @@
 
 ---
 
-#### 1. Prepare the code
+#### 1. Introduction
+
+* this is the demo code for [Cylon-6](https://www.blackhat.com/us-19/arsenal/schedule/index.html#cylon--an-edid-fuzzer-based-on-raspberry-pi-hardware-17030)
+
+* The pdf: [BH_USA_Arsenal_Cylon6.pdf](https://github.com/kings-way/cylon-6/blob/master/pdf/)
+
+* The demo video: [https://youtu.be/K247L3hgy9Y](https://youtu.be/K247L3hgy9Y)
+
+
+#### 2. How to run the demo
 
 	git clone https://github.com/rsta2/circle
 	git clone https://github.com/kings-way/cylon-6 circle/sample/cylon-6
 	
-	# patch the code
-	cd circle
-	patch -p1 < sample/cylon-6/i2cslave.patch
-
 	# Set RPi version in Rules.mk (RASPPI ?= 3 here)
 	sed -i 's/RASPPI.*?=.*/RASPPI ?= 3/g' Rules.mk
 
-
-#### 2. Build
-	
+	# build 'circle'
 	apt install gcc-arm-none-eabi
 	./makeall -j4
 	
+	# build sample 'cylon-6'
 	cd sample/cylon-6/
 	make
 
-
-#### 3. Run
- #TODO
+#### 3. Notice
+#TODO

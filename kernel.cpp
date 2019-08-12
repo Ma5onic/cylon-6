@@ -25,9 +25,9 @@ CKernel::CKernel (void)
 :	m_Screen (m_Options.GetWidth (), m_Options.GetHeight ()),
 	m_Timer (&m_Interrupt),
 	m_Logger (m_Options.GetLogLevel (), &m_Timer),
-	m_I2CEchoServer (I2C_SLAVE_ADDRESS)
+	m_Cylon6 (&m_ActLED, &m_Timer)
 {
-	m_ActLED.Blink (5);	// show we are alive
+	m_ActLED.Blink (3);	// show we are alive
 }
 
 CKernel::~CKernel (void)
@@ -71,7 +71,7 @@ boolean CKernel::Initialize (void)
 
 	if (bOK)
 	{
-		bOK = m_I2CEchoServer.Initialize ();
+		bOK = m_Cylon6.Initialize ();
 	}
 
 	return bOK;
@@ -81,7 +81,7 @@ TShutdownMode CKernel::Run (void)
 {
 	m_Logger.Write (FromKernel, LogNotice, "Compile time: " __DATE__ " " __TIME__);
 
-	m_I2CEchoServer.Run ();
+	m_Cylon6.Run ();
 
 	return ShutdownHalt;
 }

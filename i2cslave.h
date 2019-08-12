@@ -1,5 +1,5 @@
 //
-// kernel.h
+// i2cslave.h
 //
 // Circle - A C++ bare metal environment for Raspberry Pi
 // Copyright (C) 2014-2015  R. Stange <rsta2@o2online.de>
@@ -17,53 +17,35 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
-#ifndef _kernel_h
-#define _kernel_h
+#ifndef _circle_i2cslave_h
+#define _circle_i2cslave_h
 
-#include <circle/memory.h>
-#include <circle/actled.h>
-#include <circle/koptions.h>
-#include <circle/devicenameservice.h>
-#include <circle/screen.h>
-#include <circle/serial.h>
-#include <circle/exceptionhandler.h>
-#include <circle/interrupt.h>
-#include <circle/timer.h>
-#include <circle/logger.h>
+#include <circle/gpiopin.h>
 #include <circle/types.h>
-#include "cylon-6.h"
+#include <circle/actled.h>
+#include <circle/timer.h>
 
-enum TShutdownMode
-{
-	ShutdownNone,
-	ShutdownHalt,
-	ShutdownReboot
-};
-
-class CKernel
+class CI2CSlave
 {
 public:
-	CKernel (void);
-	~CKernel (void);
+	CI2CSlave (u8 ucAddress, CTimer *_m_Timer);
+	~CI2CSlave (void);
 
 	boolean Initialize (void);
 
-	TShutdownMode Run (void);
+	// returns number of read bytes or < 0 on failure
+	int Read (void *pBuffer, unsigned nCount, u8 timeout);
+
+	// returns number of written bytes or < 0 on failure
+	int Write (const void *pBuffer, unsigned nCount, u8 timeout);
 
 private:
-	// do not change this order
-	CMemorySystem		m_Memory;
-	CActLED			m_ActLED;
-	CKernelOptions		m_Options;
-	CDeviceNameService	m_DeviceNameService;
-	CScreenDevice		m_Screen;
-	CSerialDevice		m_Serial;
-	CExceptionHandler	m_ExceptionHandler;
-	CInterruptSystem	m_Interrupt;
-	CTimer			m_Timer;
-	CLogger			m_Logger;
+	u8 m_ucAddress;
 
-	Cylon6		m_Cylon6;
+	CGPIOPin m_SDA;
+	CGPIOPin m_SCL;
+	CActLED	 m_ActLED;
+	CTimer 	 *m_Timer;
 };
 
 #endif

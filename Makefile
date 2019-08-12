@@ -4,7 +4,7 @@
 
 CIRCLEHOME = ../..
 
-OBJS	= main.o kernel.o cylon-6.o
+OBJS	= main.o kernel.o cylon-6.o i2cslave.o
 
 LIBS	= $(CIRCLEHOME)/lib/libcircle.a
 
