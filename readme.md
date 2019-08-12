@@ -4,7 +4,7 @@
 
 #### 1. Introduction
 
-* This is the demo code for [Cylon-6](https://www.blackhat.com/us-19/arsenal/schedule/index.html#cylon--an-edid-fuzzer-based-on-raspberry-pi-hardware-17030)
+* Demo code for [Cylon-6](https://www.blackhat.com/us-19/arsenal/schedule/index.html#cylon--an-edid-fuzzer-based-on-raspberry-pi-hardware-17030), it is based on [rsta2/circle](https://github.com/rsta2/circle)
 
 * The pdf: [BH_USA_Arsenal_Cylon6.pdf](https://github.com/kings-way/cylon-6/blob/master/pdf/BH_USA_Arsenal_Cylon6.pdf)
 
