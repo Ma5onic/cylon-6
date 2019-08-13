@@ -29,3 +29,17 @@
 
 #### 3. Notice
 #TODO
+
+#### 4. Refer
+
+https://en.wikipedia.org/wiki/Extended_Display_Identification_Data
+https://www.raspberrypi.org/app/uploads/2012/02/BCM2835-ARM-Peripherals.pdf
+https://www.raspberrypi.org/forums/viewtopic.php?t=87804
+https://raspberrypi.stackexchange.com/questions/76109/raspberry-as-an-i2c-slave
+http://abyz.me.uk/rpi/pigpio/cif.html#bscXfer
+https://arduino.stackexchange.com/questions/58370/how-to-manage-variable-i2c-read-lengths-
+https://www.geeks3d.com/20091230/vga-hack-how-to-make-a-vga-dummy-plug/
+https://elixir.bootlin.com/linux/v4.18.6/source/drivers/i2c
+https://elixir.bootlin.com/linux/v4.18.6/ident/__i2c_transfer
+https://i2c.info/i2c-bus-specification
+
